@@ -11,6 +11,9 @@ WORKDIR /home/ubuntu/pyprojects/DrumCircle/circle
 COPY requirements.txt .
 
 # Install any dependencies
+RUN	sudo install mysql-client pkg-config
+RUN	sudo apt-get install default-libmysqlclient-dev
+RUN sudo apt-get install pkg-config build-essential libmysqlclient-dev
 RUN pip3 install --upgrade pip
 RUN pip3 install -r requirements.txt
 
