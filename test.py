@@ -1,9 +1,11 @@
+import os
 from audio_similarity import AudioSimilarity
 
 # exercise =
 # attempt =
 
-
+path = os.environ[""]
+print(path)
 
 
 
