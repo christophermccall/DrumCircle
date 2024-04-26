@@ -8,7 +8,6 @@ database = os.environ["database"]
 port = os.environ["port"]
 secretkey = os.environ["secretkey"]
 app = os.environ["app"]
-hmm = os.environ["hmm"]
 class Config:
     """Set Flask configuration from .env file."""
     # General Config
