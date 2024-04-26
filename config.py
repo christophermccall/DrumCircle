@@ -1,5 +1,4 @@
 from os import path
-from env import key
 basedir = path.abspath(path.dirname(__file__))
 
 class Config:
