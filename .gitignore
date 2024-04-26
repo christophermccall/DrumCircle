@@ -1,6 +1,6 @@
 config.py
 circle/create_db.py
-media
+circle/static/media
 
 venv/
 .vscode
@@ -151,5 +151,5 @@ cython_debug/
 .static/user_media
 
 
-
-
+env.py
+bucket.py

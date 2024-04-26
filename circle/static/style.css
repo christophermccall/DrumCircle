@@ -1,0 +1,349 @@
+.page {
+    font-family: Arial, sans-serif; /* Update font-family */
+    font-size: 14px; /* Update font size */
+    color: #1976D2;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1%;
+    margin-bottom 10%;
+
+    width: 80%;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.header {
+    overflow: hidden;
+    padding: 10px; /* Update padding */
+    width: 100%;
+    background-color: #8bc34a; /* Light green background color */
+    border-bottom: 1px solid black;
+}
+
+.navbar {
+    width: 100%;
+    background-color: #1976d2; /* Blue background color */
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: light gray;
+}
+
+.navbar-nav .cog-icon::before {
+    content: "\2699"; /* Unicode character for cog icon */
+    list-style: none; /* Remove bullet point */
+    font-size: 35px; /* Increase icon size */
+}
+
+.content {
+    margin-top: 10px; /* Update margin top */
+    margin-bottom: 10px; /* Update margin bottom */
+}
+
+.login {
+    width: 25%;
+    float: right;
+    text-align: center;
+}
+
+.loginbox {
+    margin: 3% auto; /* Update margin */
+    text-align: center;
+}
+
+.loginelement {
+    margin-top: 10px; /* Update margin top */
+}
+
+.logoutlink {
+    padding-left: 5px; /* Update padding */
+    font-size: 12px; /* Update font size */
+}
+
+.postsubmit {
+    margin: 0 auto; /* Update margin */
+    text-align: center;
+}
+
+.subforumlisting {
+    border-bottom: 1px solid gray;
+    padding: 10px; /* Update padding */
+    margin-bottom: 10px; /* Update margin bottom */
+}
+
+.inputbox {
+    padding: 5px; /* Update padding */
+    margin-top: 10px; /* Update margin top */
+}
+
+.errors {
+    border-bottom: 1px solid black;
+    margin-top: 20px; /* Update margin top */
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+.subforumtitle {
+    color: blue;
+    font-size: 15px; /* Update font size */
+    font-weight: bold;
+}
+
+.subforumdesc {
+    font-size: 13px; /* Update font size */
+    font-style: italic;
+}
+
+.subforumheader {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    font-size: 15px;
+}
+
+.subforumheadertitle {
+    display: inline;
+    font-weight: bold;
+}
+
+.subforumheaderdesc {
+    display: inline;
+}
+
+.post {
+    padding: 10px; /* Update padding */
+    border-bottom: 1px solid gray;
+}
+
+.postusername {
+    font-style: italic;
+    font-size: 12px; /* Update font size */
+}
+
+.subforumheaderlink {
+    font-style: italic;
+    font-size: 12px; /* Update font size */
+    margin-top: 10px; /* Update margin top */
+}
+
+.postinginfo {
+    font-size: 11px; /* Update font size */
+    font-style: italic;
+}
+
+#nolinks {
+    text-decoration: none;
+}
+
+.noposts {
+    padding: 10px; /* Update padding */
+}
+
+.subsubforums {
+    border: 1px solid black;
+    padding: 10px;
+    margin-top: 10px; /* Update margin top */
+}
+
+.subsubforumtitle {
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 14px; /* Update font size */
+}
+
+.subsubforumdesc {
+    font-style: italic;
+    font-size: 12px; /* Update font size */
+}
+
+.toplevelinfo {
+    padding: 10px;
+    font-weight: bold;
+}
+
+.inputbox {
+        width: 100%; /* Set the width to 100% */
+        height: 200px; /* Set a fixed height */
+        resize: vertical; /* Allow vertical resizing */
+        overflow-y: auto; /* Enable vertical scrolling */
+    }
+.smallinputbox {
+        width: 100%; /* Set the width to 100% */
+        height: 30px; /* Set a fixed height */
+    }
+.actualpost {
+    padding: 10px; /* Update padding */
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin-bottom: 10px; /* Update margin bottom */
+}
+
+.actualposttitle {
+    border-collapse: collapse;
+    border-bottom: 1px solid black;
+    padding: 10px; /* Update padding */
+    font-size: 16px; /* Update font size */
+    font-weight: bold;
+}
+
+.postcontent {
+    padding: 5px; /* Update padding */
+}
+
+.postposter {
+    font-size: 12px; /* Update font size */
+    font-style: italic;
+    color: black;
+}
+
+.posttime {
+    font-style: italic;
+    font-size: 11px; /* Update font size */
+}
+
+.whitespace {
+    white-space: pre-line;
+}
+
+.comments {
+    border: 1px solid gray;
+    padding: 10px; /* Update padding */
+    margin-top: 10px; /* Update margin top */
+}
+
+.comment {
+    border-bottom: 1px solid gray;
+}
+
+.commentuser {
+    display: inline;
+    font-weight: bold;
+}
+
+.commentcontent {
+    display: inline;
+}
+
+.commenttime {
+    font-size: 11px; /* Update font size */
+    font-style: italic;
+}
+
+.addcomment {
+    display: none;
+    margin: 0 auto; /* Update margin */
+    text-align: center;
+}
+
+.varwidth {
+    width: 50%;
+}
+
+
+.footer {
+    background-color: #f8f9fa;
+    color: #333;
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    max-height: 50%;
+}
+
+.card {
+    margin-bottom: 20px; /* Add some space between cards */
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    color: #333;
+    padding: 20px 0;
+    position: fixed;
+    width: 30%;
+    text-align: center;
+}
+
+.column-container {
+    background-color: #1a237e; /* Dark blue color */
+    padding: 20px; /* Add padding around the image */
+    text-align: center; /* Center the content horizontally */
+}
+
+.column-container a:hover {
+    color: white;
+}
+
+.blogpost {
+    color: #ffe4f2;
+     font-size: 18px;
+    background: rgb(63,94,251);
+     border-radius: 25px;
+    padding: 1px 10px 10px 15px;
+
+        }
+
+.blogheader {
+    border-radius: 5px;
+    background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(32,29,253,1) 50%, rgba(252,69,140,0.9472163865546218) 100%);
+    padding: 2px 10px 10px 15px;
+    color: #ffe4f2;
+    text-align: center;
+    letter-spacing: 5px;
+}
+
+.blog-link{
+    color: #ffe4f2;
+  transition: transform .2s;
+}
+
+.blog-link:hover {
+  transform: scale(1.005);
+}
+
+blog-labal {
+color: #ffe4f2;
+}
+
+.bloginputbox {
+        width: 100%; /* Set the width to 100% */
+        height: 100px; /* Set a fixed height */
+        resize: vertical; /* Allow vertical resizing */
+        overflow-y: auto; /* Enable vertical scrolling */
+        border-radius: 10px;
+        color: black;
+        padding: 1%
+    }
+
+a:hover {
+text decoration:none;
+}
+
+
+.hero-image {
+  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/media/img_3.png");
+
+  /* Set a specific height */
+  height: 50%;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* Place text in the middle of the image */
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}

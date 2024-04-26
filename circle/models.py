@@ -43,6 +43,12 @@ class Post(db.Model):
     exercise = db.relationship("Exercise", backref="post")
     reacts = db.relationship('React', backref="post", lazy="dynamic")
 
+    def __init__(self, title, content, created, caption=None):
+        self.title = title
+        self.content = content
+        self.caption = caption
+        self.created = created
+
 
 class Message(db.Model):
     messageID = db.Column(db.Integer, primary_key=True)
@@ -50,7 +56,7 @@ class Message(db.Model):
     sent = db.Column(db.String(255), nullable=False)
     received = db.Column(db.String(255), nullable=False)
     created = db.Column(db.DateTime)
-    exercise = db.relationship("Exercise", backref="post")
+    exercise = db.relationship("Exercise", backref="message")
 
 
 class Exercise(db.Model):
@@ -60,8 +66,8 @@ class Exercise(db.Model):
     mediaType = db.Column(db.String(255))
     user_id = db.Column(db.Integer, db.ForeignKey('user.userID'))
     post_id = db.Column(db.Integer, db.ForeignKey("post.postID"))
+    message_id = db.Column(db.Integer, db.ForeignKey("message.messageID"))
     audio = db.relationship("Audio", backref="exercise")
-    message = db.relationship("Message", backref="exercise")
     score = db.relationship("Score", backref="exercise")
 
 

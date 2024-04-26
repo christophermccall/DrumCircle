@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="blog-link"> <a href="/blog/"><h1 class="blogheader"> Syncopation Station </h1></a></div>
+ <div class="blogpost">
+        <h2>{{ post.title }}</h2>
+        {{post.content}}
+
+    </div>
+<br>
+        <span class="badge badge-primary">{{ post.created }}</span>
+	<a href="{{ url_for('edit', post_id=post.postID)}}">
+            <span class="badge badge-warning">Edit</span>
+        </a>
+        <hr>
+
+{% endblock %}
