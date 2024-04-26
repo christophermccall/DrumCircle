@@ -11,7 +11,8 @@ WORKDIR /home/ubuntu/pyprojects/DrumCircle/circle
 COPY requirements.txt .
 
 # Install any dependencies
-RUN pip install -r requirements.txt
+RUN pip3 install --upgrade pip
+RUN pip3 install -r requirements.txt
 
 # Copy the content of the local src directory to the working directory
 COPY  app.py .
