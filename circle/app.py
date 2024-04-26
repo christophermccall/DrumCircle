@@ -1,15 +1,28 @@
 from flask import render_template, request, flash, redirect, url_for
 import datetime
+from flask_sqlalchemy import SQLAlchemy
 # create the instance
 from flask_mysqldb import MySQL
 from circle.models import Post, db
 from . import create_app
+import os
 #helps flask find all the files in our directory
+user = os.environ["user"]
+password = os.environ['password']
+host = os.environ["host"]
+database = os.environ["database"]
+port = os.environ["port"]
+secretkey = os.environ["secretkey"]
 app = create_app()
 app.config['SITE_NAME'] = 'Drum Circle'
 app.config['SITE_DESCRIPTION'] = 'A community driven learning environment'
 app.config['FLASK_DEBUG'] = 1
+app.config['MYSQL_HOST'] = host
+app.config['MYSQL_USER'] = user
+app.config['MYSQL_PASSWORD'] = password
+app.config['MYSQL_DB'] = database
 app.config['MYSQL_CHARSET'] = 'utf8mb4'
+
 mysql = MySQL(app)
 # create a decorator (for connecting routes)
 
