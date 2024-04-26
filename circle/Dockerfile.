@@ -5,7 +5,7 @@ FROM python:3.12-alpine
 EXPOSE 5000/tcp
 
 # Set the working directory in the container
-WORKDIR /Users/chris/pyprojects/DrumCircle
+WORKDIR /home/ubuntu/pyprojects/DrumCircle/circle
 
 # Copy the dependencies file to the working directory
 COPY requirements.txt .
@@ -17,4 +17,4 @@ RUN pip install -r requirements.txt
 COPY  .
 
 # Specify the command to run on container start
-CMD [ "python", "./drum.py" ]
+CMD [ "python3", "./drum.py" ]
