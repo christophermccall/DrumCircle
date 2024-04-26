@@ -9,7 +9,7 @@ app = create_app()
 app.config['SITE_NAME'] = 'Drum Circle'
 app.config['SITE_DESCRIPTION'] = 'A community driven learning environment'
 app.config['FLASK_DEBUG'] = 1
-
+app.config['MYSQL_CHARSET'] = 'utf8mb4'
 mysql = MySQL(app)
 # create a decorator (for connecting routes)
 
