@@ -4,7 +4,6 @@
 from flask_login import UserMixin
 import datetime
 import bcrypt
-
 from flask_login import UserMixin
 import datetime
 from sqlalchemy import and_

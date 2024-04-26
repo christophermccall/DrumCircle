@@ -1,11 +1,18 @@
 from flask import render_template, request, flash, redirect, url_for
 import datetime
+import urllib.parse
+
+# Encode the password using UTF-8
+
 from flask_sqlalchemy import SQLAlchemy
 # create the instance
 from flask_mysqldb import MySQL
 from circle.models import Post, db
 from . import create_app
 import os
+
+import pymysql
+
 #helps flask find all the files in our directory
 user = os.environ["user"]
 password = os.environ['password']
@@ -14,21 +21,29 @@ database = os.environ["database"]
 port = os.environ["port"]
 secretkey = os.environ["secretkey"]
 app = create_app()
+encoded_password = urllib.parse.quote_plus(password)
 app.config['SITE_NAME'] = 'Drum Circle'
 app.config['SITE_DESCRIPTION'] = 'A community driven learning environment'
 app.config['FLASK_DEBUG'] = 1
 app.config['MYSQL_HOST'] = host
 app.config['MYSQL_USER'] = user
-app.config['MYSQL_PASSWORD'] = password
+app.config['MYSQL_PASSWORD'] = encoded_password
 app.config['MYSQL_DB'] = database
 app.config['MYSQL_CHARSET'] = 'utf8mb4'
 
 mysql = MySQL(app)
+
+
+import pymysql
+
+connection = pymysql.connect(host=host,
+                             user=user,
+                             password=password,
+                             database=database,
+                             charset='utf8mb4',
+                             cursorclass=pymysql.cursors.DictCursor)
+
 # create a decorator (for connecting routes)
-
-
-
-
 
 
 

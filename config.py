@@ -1,5 +1,9 @@
 from os import path
 import os
+import urllib.parse
+
+# Encode the password using UTF-8
+
 basedir = path.abspath(path.dirname(__file__))
 user = os.environ["user"]
 password = os.environ['password']
@@ -8,6 +12,7 @@ database = os.environ["database"]
 port = os.environ["port"]
 secretkey = os.environ["secretkey"]
 app = os.environ["app"]
+encoded_password = urllib.parse.quote_plus(password)
 class Config:
     """Set Flask configuration from .env file."""
     # General Config
@@ -16,6 +21,6 @@ class Config:
     # Database
     #SQLALCHEMY_DATABASE_URI = 'sqlite:///drumcircle.db'
     # SQLALCHEMY_DATABASE_URI = f'mysql+pymysql://chrism:{password}@localhost/drumcircle'
-    SQLALCHEMY_DATABASE_URI = f'mysql+pymysql://{user}:{password}@{host}/{database}?charset=utf8mb4'
+    SQLALCHEMY_DATABASE_URI = f'mysql+pymysql://{user}:{encoded_password}@{host}/{database}?charset=utf8mb4'
     SQLALCHEMY_ECHO = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
