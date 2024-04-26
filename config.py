@@ -16,6 +16,6 @@ class Config:
     # Database
     #SQLALCHEMY_DATABASE_URI = 'sqlite:///drumcircle.db'
     # SQLALCHEMY_DATABASE_URI = f'mysql+pymysql://chrism:{password}@localhost/drumcircle'
-    SQLALCHEMY_DATABASE_URI = f'mysql+pymysql://{user}:{password}@{host}/{database}'
+    SQLALCHEMY_DATABASE_URI = f'mysql+pymysql://{user}:{password}@{host}/{database}charset=utf8'
     SQLALCHEMY_ECHO = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
