@@ -39,7 +39,7 @@ more-itertools==10.2.0
 msgpack==1.0.8
 music21==9.1.0
 mysql-connector-python==8.3.0
-mysqlclient==2.2.4
+
 numba==0.59.1
 numpy==1.26.4
 packaging==24.0
