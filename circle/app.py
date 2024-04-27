@@ -1,8 +1,7 @@
-from flask import render_template, request, flash, redirect, url_for
+from flask import render_template, request, flash, redirect, url_for, session
+from flask_login import LoginManager, current_user, login_required, logout_user
+from circle.models import User
 import datetime
-import urllib.parse
-
-# Encode the password using UTF-8
 
 from flask_sqlalchemy import SQLAlchemy
 # create the instance
@@ -11,56 +10,70 @@ from circle.models import Post, db
 from . import create_app
 import os
 
-import pymysql
 
-#helps flask find all the files in our directory
+
 user = os.environ["user"]
 password = os.environ['password']
 host = os.environ["host"]
 database = os.environ["database"]
 port = os.environ["port"]
 secretkey = os.environ["secretkey"]
+
+
+
+
 app = create_app()
-encoded_password = urllib.parse.quote_plus(password)
 app.config['SITE_NAME'] = 'Drum Circle'
 app.config['SITE_DESCRIPTION'] = 'A community driven learning environment'
-app.config['FLASK_DEBUG'] = 1
+# app.config['FLASK_DEBUG'] = 1
 app.config['MYSQL_HOST'] = host
 app.config['MYSQL_USER'] = user
-app.config['MYSQL_PASSWORD'] = encoded_password
+app.config['MYSQL_PASSWORD'] = password
 app.config['MYSQL_DB'] = database
 app.config['MYSQL_CHARSET'] = 'utf8mb4'
 
 mysql = MySQL(app)
 
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = 'login'
 
-import pymysql
-
-connection = pymysql.connect(host=host,
-                             user=user,
-                             password=password,
-                             database=database,
-                             charset='utf8mb4',
-                             cursorclass=pymysql.cursors.DictCursor)
 
 # create a decorator (for connecting routes)
+@login_manager.user_loader
+def load_user(userid):
+    return User.query.get(int(userid))
+@app.route('/login')
+def login():
+    return render_template("landing.html")
 
 
+# @app.route('/logout', methods=['GET', 'POST'])
+# def logout():
+#     logout_user()
+#     return redirect(url_for('/'))
 
 
 @app.route('/')
+@login_required
 def index():
     posts = Post.query.order_by(Post.postID)
     return render_template('index.html', posts=posts)
 
+
+
+
+
 #{{ url_for('post', post_id=post['id']) }}
 @app.route('/index/<int:post_id>')
+@login_required
 def post(post_id):
     posts = Post.query.get_or_404(post_id)
     return render_template('blogpost.html', post=posts)
 
 
 @app.route('/create', methods=('GET', 'POST'))
+@login_required
 def create():
     if request.method == 'POST':
         title = request.form['title']
@@ -78,6 +91,7 @@ def create():
 
 
 @app.route('/edit/<int:post_id>', methods=('GET', 'POST'))
+@login_required
 def edit(post_id):
     post = Post.query.get_or_404(post_id)
     if request.method == 'POST':
@@ -98,6 +112,7 @@ def edit(post_id):
 
 
 @app.route('/index/delete/<int:post_id>/', methods=('POST', 'GET'))
+@login_required
 def delete(post_id):
     post_to_delete = Post.query.get_or_404(post_id)
     try:
@@ -112,13 +127,15 @@ def delete(post_id):
     # mydb.commit()
     # flash('"{}" was successfully deleted!'.format(post['title']))
 
-@app.route('/landing')
-def landing_page():
-    return render_template('landing.html')
+
+
+
+
+
+
+
 
 with app.app_context():
     db.create_all()
 
 
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)

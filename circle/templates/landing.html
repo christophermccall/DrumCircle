@@ -9,6 +9,8 @@ body, html {
     background-color: #edf2f4;
 }
 
+
+
 /* The hero image */
 .hero-image {
   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
@@ -39,28 +41,76 @@ body, html {
 }
 
 
+
+
 .button {
-  transition-duration: 0.4s;
-  background-color: #008CBA;
+	background-color: #000000;
+	color: #FFFFFF;
+	padding: 10px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	margin:10px
 }
 
-.button:hover {
-  background-color: #008CBA;
-  color: white;
+.small-btn {
+	width: 50px;
+	height: 25px;
 }
+
+.loginbox {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	width: 8em;
+	width: 20vmin
+}
+
+
+.signupbox {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	width: 8em;
+	width: 20vmin
+}
+
+.loginelement {
+	width: 20vmin;
+}
+
 
     </style>
     <div class="hero-image">
           <div class="hero-text">
             <h1>Drum Circle</h1>
             <p>Practice Confidently</p>
-            <button>Get Started</button>
           </div>
         </divclass>
     </div>
 
 </head>
 <body>
+
+<div class="loginbox">
+	<h3>Login</h3>
+	<form action="/action_login" method="POST">
+	<input class="loginelement" type="text" placeholder="Username" name="username"><br>
+	<input class="loginelement" type="password" placeholder="Password" name="password"><br>
+	<input class="loginelement" type="submit" value="Login">
+	</form>
+</div>
+<br><br>
+<div class="signupbox">
+	<h3>Sign Up</h3>
+	<form action="/action_createaccount" method="POST">
+	<input class="loginelement" type="email" placeholder="Email" name="email"><br>
+	<input class="loginelement" type="text" placeholder="Username" name="username"><br>
+	<input class="loginelement" type="password" placeholder="Password" name="password"><br>
+	<input class="loginelement" type="submit" value="Create">
+	</form>
+
+</div>
 
 </body>
 </html>

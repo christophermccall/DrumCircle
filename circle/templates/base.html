@@ -41,8 +41,40 @@ aria-label="Toggle navigation">
             <li class="nav-item">
                 <a class="nav-link" href="/create">New Post</a>
             </li>
+                {% if not current_user.is_authenticated %}
+                    <li><a class="dropdown-item" href="/login">Login</a></li>
+                {% else %}
+                <li><a class="dropdown-item" href= "{{ url_for('auth.action_logout') }}">logout</a></li>
+                <li><a class="dropdown-item" href="/dashboard">dashboard</a></li>
+                {% endif %}
             </ul>
         </div>
+         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle cog-icon" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+         <!-- &#x2699;  -->
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+          {% if not current_user.is_authenticated %}
+          <li><a class="dropdown-item" href="/loginform">Login</a></li>
+          {% else %}
+          <li><a class="dropdown-item" href="/action_logout">Logout</a></li>
+          {% endif %}
+          {% if not current_user.is_authenticated %}
+          <li><a class="dropdown-item" href="/loginform">Sign-up</a></li>
+          {% endif %}
+          {% if current_user.is_authenticated %}
+          <li><a class="dropdown-item" href="/settingsform">User-settings</a></li>
+          {% endif %}
+          {% if current_user.is_authenticated %}
+          <li><a class="dropdown-item" href="/messages">Direct messages</a></li>
+          {% endif %}
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Admin</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
     </nav> <br>
     <div class="container">
         {% for message in get_flashed_messages() %}
