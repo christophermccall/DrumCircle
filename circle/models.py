@@ -106,22 +106,32 @@ class Exercise(db.Model):
     exerciseName = db.Column(db.String(255))
     fileName = db.Column(db.String(255))
     bucket = db.Column(db.String(255))
-    region = db.Column(db.String(255))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     post_id = db.Column(db.Integer, db.ForeignKey("post.postID"))
     message_id = db.Column(db.Integer, db.ForeignKey("message.messageID"))
     audio = db.relationship("Audio", backref="exercise")
     score = db.relationship("Score", backref="exercise")
 
+    # def __init__(self,exerciseName,fileName,bucket,user_id):
+    #     self.exerciseName = exerciseName
+    #     self.fileName = fileName
+    #     self.bucket = bucket
+
+
 
 class Audio(db.Model):
     audioID = db.Column(db.Integer, primary_key=True)
     audioName = db.Column(db.String(255))
+    fileName = db.Column(db.String(255))
     filePath = db.Column(db.String(255))
-    mediaType = db.Column(db.String(255))
+    bucket = db.Column(db.String(255))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     exercise_id = db.Column(db.Integer, db.ForeignKey("exercise.exerciseID"))
 
+    def __init__(self, audioName, fileName, bucket):
+        self.audioName = audioName
+        self.fileName = fileName
+        self.bucket = bucket
 
 class Comment(db.Model):
     commentID = db.Column(db.Integer, primary_key=True)

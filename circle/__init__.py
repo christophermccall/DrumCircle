@@ -4,11 +4,12 @@ from flask import Flask, request
 from flask_dropzone import Dropzone
 from circle.auth import auth
 from circle.dashboard import dashboard
+from circle.bucket import my_bucket
 def create_app():
     """Construct the core application."""
     app = Flask(__name__, instance_relative_config=False)
     app.config.from_object('config.Config')
-
+    app.register_blueprint(my_bucket)
     app.register_blueprint(auth)
     app.register_blueprint(dashboard)
     from circle.models import db
