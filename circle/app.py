@@ -8,29 +8,10 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_mysqldb import MySQL
 from circle.models import Post, db
 from . import create_app
-import os
-
-
-
-user = os.environ["user"]
-password = os.environ['password']
-host = os.environ["host"]
-database = os.environ["database"]
-port = os.environ["port"]
-secretkey = os.environ["secretkey"]
-
-
-
+from config import Config  # Import your Config class
 
 app = create_app()
-app.config['SITE_NAME'] = 'Drum Circle'
-app.config['SITE_DESCRIPTION'] = 'A community driven learning environment'
-# app.config['FLASK_DEBUG'] = 1
-app.config['MYSQL_HOST'] = host
-app.config['MYSQL_USER'] = user
-app.config['MYSQL_PASSWORD'] = password
-app.config['MYSQL_DB'] = database
-app.config['MYSQL_CHARSET'] = 'utf8mb4'
+app.config.from_object(Config)  # Load configuration from Config class
 
 mysql = MySQL(app)
 

@@ -5,8 +5,8 @@ import boto3
 from circle.models import Exercise, db
 dashboard = Blueprint('dashboard', __name__, template_folder='templates')
 s3 = boto3.client('s3')
-bucket_name = 'drum-circle-app-bucket'
-location = {'LocationConstraint': 'us-east-1'}
+bucket_name = 'drum-circle-app-bucket-2'
+location = {'LocationConstraint': 'us-east-2'}
 response = s3.list_objects(Bucket=bucket_name)
 for object in response['Contents']:
     print(object['Key'])

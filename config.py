@@ -18,8 +18,8 @@ class Config:
     SECRET_KEY = f'{secretkey}'
     FLASK_APP = app
     # Database
-    #SQLALCHEMY_DATABASE_URI = 'sqlite:///drumcircle.db'
+    # SQLALCHEMY_DATABASE_URI = 'sqlite:///drumcircle.db'
     # SQLALCHEMY_DATABASE_URI = f'mysql+pymysql://chrism:{password}@localhost/drumcircle'
-    SQLALCHEMY_DATABASE_URI = f'mysql://{user}:{password}@{host}:{port}/{database}?charset=utf8mb4'
+    SQLALCHEMY_DATABASE_URI = f'mysql+pymysql://{user}:{password}@{host}:{port}/{database}?charset=utf8mb4'
     SQLALCHEMY_ECHO = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
