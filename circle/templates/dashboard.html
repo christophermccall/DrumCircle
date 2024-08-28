@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
 {%for url in urls%}
-    {%for audio in audio_urls}
+    {%for audio in audio_urls%}
         <div>
             <div>
                 <iframe src="{{ url }}" width="100%" height="600px" style="border: none;"></iframe>
                 <audio controls>
 
-                    <source src="{{ }}">
+                    <source src="{{ audio }}">
                 </audio>
             </div>
         </div>
+    {%endfor%}
 {%endfor%}
 {% endblock %}
