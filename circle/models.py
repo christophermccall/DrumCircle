@@ -109,13 +109,13 @@ class Exercise(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     post_id = db.Column(db.Integer, db.ForeignKey("post.postID"))
     message_id = db.Column(db.Integer, db.ForeignKey("message.messageID"))
-    audio = db.relationship("Audio", backref="exercise")
+    audio_name = db.relationship("Audio", backref="exercise")
     score = db.relationship("Score", backref="exercise")
 
-    # def __init__(self,exerciseName,fileName,bucket,user_id):
-    #     self.exerciseName = exerciseName
-    #     self.fileName = fileName
-    #     self.bucket = bucket
+    def __init__(self,exerciseName, fileName, bucketName):
+        self.exerciseName = exerciseName
+        self.fileName = fileName
+        self.bucketName = bucketName
 
 
 
@@ -126,12 +126,12 @@ class Audio(db.Model):
     filePath = db.Column(db.String(255))
     bucket = db.Column(db.String(255))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    exercise_id = db.Column(db.Integer, db.ForeignKey("exercise.exerciseID"))
+    exercise_name = db.Column(db.Integer, db.ForeignKey("exercise.exerciseID"))
 
-    def __init__(self, audioName, fileName, bucket):
+    def __init__(self, audioName, fileName, bucketName):
         self.audioName = audioName
         self.fileName = fileName
-        self.bucket = bucket
+        self.bucketName = bucketName
 
 class Comment(db.Model):
     commentID = db.Column(db.Integer, primary_key=True)

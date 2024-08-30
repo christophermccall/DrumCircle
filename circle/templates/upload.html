@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <form method="POST" enctype="multipart/form-data" style="margin-bottom: 30px;">
-        <input type="file" name="file" placeholder="add a file" class="form-control" value="{{ request.files['file'] }}"/>
+    <form method="POST" enctype="multipart/form-data" style="margin-bottom: 30px;" action="/upload">
+        <input type="file" name="files[]" placeholder="add a file" class="form-control"/>
         <button>Upload</button>
     </form>
 
