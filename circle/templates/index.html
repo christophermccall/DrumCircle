@@ -1,25 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1 class="blogheader"> Drum Circle </h1>
-    {%for post in posts%}
-        <div class="blog-link">
-            <a href="{{ url_for('post', post_id=post.postID) }}">
-            <div class="blogpost">
-                 <h2>{{ post.title }}</h2>
-                    {{post.content}}
+{%for url in urls%}
+    {%for audio in audio_urls%}
+        <div>
+            <div>
+                <iframe src="{{ url }}" width="100%" height="600px" style="border: none;"></iframe>
+                <audio controls>
 
+                    <source src="{{ audio }}">
+                </audio>
             </div>
-            </a>
         </div>
-<br>
-
-        <span class="badge badge-primary">{{ post.created }}</span>
-	<a href="{{ url_for('edit', post_id=post.postID) }}">
-
-            <span class="badge badge-warning">Edit</span>
-        </a>
-<br><br>
     {%endfor%}
-        <hr>
-
+{%endfor%}
 {% endblock %}
