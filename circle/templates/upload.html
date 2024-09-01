@@ -2,7 +2,7 @@
 {% block content %}
 
     <form method="POST" enctype="multipart/form-data" style="margin-bottom: 30px;" action="/upload">
-        <input type="file" name="files[]" placeholder="add a file" class="form-control"/>
+        <input type="file" name="files[]" placeholder="add a file" class="form-control" multiple/>
         <button>Upload</button>
     </form>
 
