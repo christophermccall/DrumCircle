@@ -8,8 +8,8 @@ s3 = boto3.client('s3')
 bucket_name = 'drum-circle-app-bucket-2'
 location = {'LocationConstraint': 'us-east-2'}
 response = s3.list_objects(Bucket=bucket_name)
-for object in response['Contents']:
-    print(object['Key'])
+
+
 
 
 @dashboard.route('/dashboard')
@@ -18,7 +18,7 @@ def dash():
     urls = []
     audio_urls = []
 
-    exercises = Exercise.query.filter_by(user_id=current_user.id)
+    exercises = Exercise.query.filter_by(user_id=current_user.id).all()
 
     # exercise = Exercise.query.filter_by(user_id=current_user.id).first()
     for exercise in exercises:
@@ -29,7 +29,7 @@ def dash():
                     'ResponseContentType': 'application/pdf',
                     'ResponseContentDisposition': 'inline; filename="{}"'.format(exercise.fileName)},
             ExpiresIn=3608)
-        audio = Audio.query.filter_by(exercise_id=exercise.exerciseID)
+        audio = Audio.query.filter_by(exercise_id=exercise.exerciseID).first()
         audio_url = s3.generate_presigned_url(
             ClientMethod='get_object',
             Params={'Bucket': bucket_name,
